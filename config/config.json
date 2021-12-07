@@ -1,0 +1,18 @@
+{
+    "development2": {
+      "username": "root",
+      "password": "admin123!!",
+      "database": "jeongsfarm",
+      "host": "203.254.143.108",
+      "dialect": "mysql",
+      "operatorsAliases": false
+    },
+    "production": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "operatorsAliases": false
+    }
+  }
