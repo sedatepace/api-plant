@@ -8,6 +8,7 @@ require('dotenv').config();
 
 
 const checkingRouter  = require('./routes/checking');
+const plantRouter  = require('./routes/plant');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser(process.env.NAVER_CLIENT_SECRET));
 app.use(flash());
 
 app.use('/checking', checkingRouter);
+app.use('/plant', plantRouter);
 
 
 app.use('/', (req, res)=>{
