@@ -79,11 +79,11 @@ router.get('/date/:start/:end', common.ipfilter(common.ips, {mode: 'allow'}), as
  * rh
  * timestamp
  */
-router.post('/', common.ipfilter(common.ips, {mode: 'allow'}), async (req, res)=>{
-    console.log({req_body: req.body});
+router.get('/input/:plant_id/:temp/:huminity/:rh/:timestamp', async (req, res)=>{
+    console.log({req_params: req.params});
     
     try{
-        let data = req.body,
+        let data = req.params,
             result = {};
 
         if(
@@ -104,8 +104,14 @@ router.post('/', common.ipfilter(common.ips, {mode: 'allow'}), async (req, res)=
             //     return;
             // }
         }
+        console.log({timestamp:data.timestamp})
+        let d = new Date(Number(data.timestamp*1000));
 
-        let out = await controller.create(data.plant_id, data.temp, data.huminity, data.rh, data.timestamp);
+        console.log(d.getTime()*1000);
+        let now1= new Date();
+
+
+        let out = await controller.create(data.plant_id, data.temp, data.huminity, data.rh, now1);
 
         res.send(out);
         return;
