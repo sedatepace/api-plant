@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Chart JS Graph Examples Part 2 | Gentelella Alela! by Colorlib</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body class="nav">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Jeong's Farms <small>모니터링</small></h3>
+               <!-- <%=  plantData.output.length %> -->
+              </div>
+
+ 
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="title_left">
+                <h2>애플민트</h2>
+              </div>
+            <div class="row">
+                
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>온도 변환<small></small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>습도변화 </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="lineChartHuminity"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>토양습도변화 </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="lineChartRh"></canvas>
+                  </div>
+                </div>
+              </div>
+<!-- 
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Radar Chart <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="canvasRadar"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Pie Area Chart <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="polarArea"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Pie Chart Graph <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="pieChart"></canvas>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <div class="clearfix"></div>
+            <br />
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <!-- <script src="../build/js/custom.min.js"></script> -->
+    <script>
+      function dataToList(data){
+        console.log(data);
+        let temp=[], humi =[], rh=[], time =[]
+        for(i=0;i<data.length;i++){
+          temp.push(data[i].temp);
+          humi.push(data[i].huminity);
+          rh.push(data[i].rh);
+          buf = data[i].timestamp.split(" ")[1]
+          time.push(buf.substring(0,buf.length-3));
+        }
+
+        return result = {
+          temp: temp,
+          humi: humi,
+          time: time,
+          rh:rh
+        }
+      }
+    </script>
+    <script>
+        function lineCall(plantData){
+            console.log("lineCall")
+            var ctx = document.getElementById("lineChart");
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:plantData.time,
+                datasets: [{
+                    backgroundColor: "rgba(38, 185, 154, 0.31)",
+                    borderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointBorderWidth: 1,
+                    data: plantData.temp
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+            }
+        });
+        }
+
+        function huminityCall(plantData){
+            console.log("huminityCall")
+            var ctx = document.getElementById("lineChartHuminity");
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:plantData.time,
+                datasets: [{
+                    backgroundColor: "rgba(38, 185, 154, 0.31)",
+                    borderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointBorderWidth: 1,
+                    data: plantData.huminity
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+            }
+        });
+        }
+
+        function line(id, label, data){
+            // console.log(id, label, data)
+            var ctx = document.getElementById(id);
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels:label,
+                datasets: [{
+                    backgroundColor: "rgba(38, 185, 154, 0.31)",
+                    borderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBorderColor: "rgba(38, 185, 154, 0.7)",
+                    pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointBorderWidth: 1,
+                    data: data
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+            }
+        });
+        }
+    </script>
+    <script>
+      var data1 = `<%= JSON.stringify(plantData.output)%>`
+      // data1 = JSON.parse(data1);
+      data1 = data1.replace(/&#34;/gi,`"`);
+      console.log(data1);
+      d = JSON.parse(data1);
+      d = d.slice(d.length-11, d.length);
+      var setData = dataToList(d);    
+      console.log(setData)
+
+
+        var platData = {
+            time : setData.time,
+            temp: setData.temp,
+            huminity: setData.humi,
+            rh: setData.rh
+        }
+
+        
+        lineCall(platData);
+        huminityCall(platData);
+        line('lineChartRh',platData.time, platData.rh )
+    </script>
+   
+  </body>
+</html>

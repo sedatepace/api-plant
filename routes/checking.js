@@ -33,7 +33,12 @@ router.get('/:plant_id', common.ipfilter(common.ips, {mode: 'allow'}), async (re
         }
 
         let out = await controller.get_by_plant_id(data.plant_id);
-        res.send(out);
+        // res.send(out);
+
+        res.render('plant', {
+            plantData: out,
+            
+          });
         return;
     } catch (err) {
         
@@ -110,10 +115,60 @@ router.get('/input/:plant_id/:temp/:huminity/:rh/:timestamp', async (req, res)=>
         console.log(d.getTime()*1000);
         let now1= new Date();
 
+        now1 = dateFormat(now1);
+
+
 
         let out = await controller.create(data.plant_id, data.temp, data.huminity, data.rh, now1);
 
         res.send(out);
+        return;
+    }catch(err){
+        console.log({err:err});
+    }
+});
+
+//조회하기
+router.get('/:plant_id', async (req, res)=>{
+    console.log({req_params: req.params});
+    
+    try{
+        let data = req.params,
+            result = {};
+
+        if(
+            (data.plant_id==undefined) 
+          
+        ){
+            res.send(common.successCode(0,"파라미터를 확인해주세요."));
+            return;
+        }else{
+            //missing
+            // if(valid.missingValidation(data)){
+            //     result = {
+            //         code: 500,
+            //         rows: 0,
+            //         output: '파라미터값을 확인해주세요.'
+            //     }
+            //     res.send(result);
+            //     return;
+            // }
+        }
+        console.log({timestamp:data.timestamp})
+        let d = new Date(Number(data.timestamp*1000));
+
+        console.log(d.getTime()*1000);
+        let now1= new Date();
+
+
+        let out = await controller.get_by_plant_id(data.plant_id);
+
+        res.render('plant', {
+            title: 'NodeBird',
+            twits: [],
+            user: null,
+            loginError: req.flash('loginError'),
+          });
         return;
     }catch(err){
         console.log({err:err});
@@ -192,4 +247,20 @@ router.post('/getStudiesOfInvestigator', common.ipfilter(common.ips, {mode: 'all
     }
 });
 
+
+function dateFormat(date) {
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    month = month >= 10 ? month : '0' + month;
+    day = day >= 10 ? day : '0' + day;
+    hour = hour >= 10 ? hour : '0' + hour;
+    minute = minute >= 10 ? minute : '0' + minute;
+    second = second >= 10 ? second : '0' + second;
+
+    return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+}
 module.exports = router;
