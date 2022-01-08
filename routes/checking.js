@@ -24,7 +24,7 @@ router.get('/', common.ipfilter(common.ips, {mode: 'allow'}), async (req, res) =
 });
 
 //READ 특정 식물 측정값 전체 조회 하기. 
-router.get('/:plant_id', common.ipfilter(common.ips, {mode: 'allow'}), async (req, res) => {
+router.get('/:plant_id', async (req, res) => {
     try{
         let data = req.params;
         if(data.plant_id == undefined ) { // 파라미터값이 undefined 경우
